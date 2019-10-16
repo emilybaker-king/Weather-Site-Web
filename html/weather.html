@@ -18,6 +18,7 @@
 
     <body>
 
+        <!-- nav bar -->
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: darkolivegreen">
             <a class="navbar-brand" href="#">Weather Vane</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,8 +35,8 @@
                 </li>
             </div>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Enter Zip/Address/City" aria-label="Search">
-                <button class="btn btn-warning my-2 my-sm-0" type="submit">Get Weather</button>
+                <input id="searchBar" class="form-control mr-sm-2" type="search" placeholder="Enter Zip/Address/City" aria-label="Search">
+                <button id="submit" class="btn btn-warning my-2 my-sm-0" type="button">Get Weather</button>
             </form>
         </nav>
 
@@ -49,6 +50,33 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        <!--end navbar -->
+
+        <!-- weather card -->
+        <div class="container">
+            <div class="row">
+                <div class="template col-xs-12 col-lg-4">
+                    <div class="weatherCard">
+                        <!-- button to remove the card -->
+                        <button type="button" id="remove">X</button>
+                        <!-- location -->
+                        <h1>Glasgow</h1>
+                        <!-- current temperature -->
+                        <h1>55&#8457</h1> <!-- &#8457 makes a degree symbol -->
+                        <!-- list of weather information -->
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Location: Glasgow</li>
+                            <li class="list-group-item">Current Conditions: Overcast</li>
+                            <li class="list-group-item">High Temp: 75&#8457</li>
+                            <li class="list-group-item">Low Temp: 36&#8457</li>
+                            <li class="list-group-item">Chance of Precipitation: 40%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         
         <!-- api keys file js -->
         <script src="../js/apiKeys.js"></script>
