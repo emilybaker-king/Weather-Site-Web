@@ -52,30 +52,32 @@
         crossorigin="anonymous"></script>
         <!--end navbar -->
 
-        <!-- weather card -->
+        <!-- weather card container -->
         <div class="container">
             <div class="row">
-                <div class="template col-xs-12 col-lg-4">
-                    <div class="weatherCard">
-                        <!-- button to remove the card -->
-                        <button type="button" id="remove">X</button>
-                        <!-- location -->
-                        <h1>Glasgow</h1>
-                        <!-- current temperature -->
-                        <h1>55&#8457</h1> <!-- &#8457 makes a degree symbol -->
-                        <!-- list of weather information -->
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Location: Glasgow</li>
-                            <li class="list-group-item">Current Conditions: Overcast</li>
-                            <li class="list-group-item">High Temp: 75&#8457</li>
-                            <li class="list-group-item">Low Temp: 36&#8457</li>
-                            <li class="list-group-item">Chance of Precipitation: 40%</li>
-                        </ul>
-                    </div>
+            </div>
+        </div>
+        <!-- weather card template -->
+        <div id="template" style="display: none">
+            <div class="template col-xs-12 col-lg-4">
+                <div class="weatherCard">
+                    <!-- button to remove the card -->
+                    <button type="button" id="remove">X</button>
+                    <!-- location -->
+                    <h1>@@city@@</h1>
+                    <!-- current temperature -->
+                    <h1>@@currentTemp@@&#8457</h1> <!-- &#8457 makes a degree symbol -->
+                    <!-- list of weather information -->
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Location: @@cityState@@</li>
+                        <li class="list-group-item">Current Conditions: @@conditions@@</li>
+                        <li class="list-group-item">High Temp: @@highTemp@@&#8457</li>
+                        <li class="list-group-item">Low Temp: @@lowTemp@@&#8457</li>
+                        <li class="list-group-item">Chance of Precipitation: @@precip@@%</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
 
         
         <!-- api keys file js -->
