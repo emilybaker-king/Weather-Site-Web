@@ -29,8 +29,9 @@ function getWeatherInfo(latitude, longitude, city, state) {
         //Get the HTML from the div with the ID template
         let templateHTML = $("#template").html();
         //We need to get the temp from Dark Sky data
-         let temperature = data.currently.temperature;
-         let conditions = data.currently.summary;
+        let temperature = data.currently.temperature;
+        let conditions = data.currently.summary;
+        let weatherIcon = data.currently.icon;
 
         let currentDayInfo = data.daily.data[0];
         let highTemp = currentDayInfo.temperatureHigh;
@@ -51,6 +52,37 @@ function getWeatherInfo(latitude, longitude, city, state) {
         templateHTML = templateHTML.replace("@@lowTemp@@", Math.round(lowTemp));
 
         templateHTML = templateHTML.replace("@@precip@@", Math.round(precipChance));
+
+        templateHTML = templateHTML.replace("@@imageURL@@", getBackgroundPath(weatherIcon));
+
+        for (var i = 0; i < 5; i ++) {
+            //Set the date for each day
+            if (i > 0) {
+                //get the cirrent date, and add i days to it
+                let date = new Date();
+                date.setDate(date.getDate() + i);
+                
+                //get the month(0-11) from the date and add 1 to it for accuracy
+                let month = date.getMonth() + 1;
+                //get the day from the date
+                let day = date.getDate();
+
+                //replace the placeholder text in the templtre for date i
+                templateHTML = templateHTML.replace("@@date" + i + "@@", month + "/" + day);
+            }
+
+            //get the weather data for the day based on i
+            let currentDayWeatherData = data.daily.data[i];
+
+            //get the max temperature for each day at i
+            templateHTML = templateHTML.replace("@@max" + i + "@@", Math.round(currentDayWeatherData.temperatureMax));
+
+            //get the min temperature for each day at i
+            templateHTML = templateHTML.replace("@@low" + i + "@@", Math.round(currentDayWeatherData.temperatureLow));
+
+            //get the percipitation chance each day at i
+            templateHTML = templateHTML.replace("@@precip" + i + "@@", Math.round(currentDayWeatherData.precipProbability * 100));
+        }
 
         //Add the configured template HTML to our row in the card container
         $(".row").append(templateHTML);
@@ -91,4 +123,32 @@ function geocode(location) {
         console.log("Geocoding call complete!")
     })
 
+}
+
+function getBackgroundPath(iconString) {
+    //create a switch statement that switches based on the value of the iconString. for each case, it should return the path to the appropriate image for that iconString value. By default, it should return the oath to the clear-day image.
+    switch (iconString) {
+        case "clear-day":
+            return "..//img/clear-day.jpg";
+        case "clear-night":
+            return "..//img/clear-night.jpg";
+        case "rain":
+            return "..//img/rain.jpg";
+        case "snow":
+            return "..//img/snow.jpg";
+        case "sleet":
+            return "..//img/sleet.jpg";
+        case "fog":
+            return "..//img/fog.jpg";
+        case "wind":
+            return "..//img/wind.jpg";
+        case "cloudy":
+            return "..//img/cloudy.jpg";
+        case "partly-cloudy-day":
+            return "..//img/partly-cloudy-day.jpg";
+        case "partly-cloudy-night":
+            return "..//img/partly-cloudy-night.jpg";
+        default:
+            return "..//img/clear-day.jpg";
+    }
 }

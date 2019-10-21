@@ -8,6 +8,7 @@ body {
     border: 2px black solid;
     box-shadow: 5px 5px 5px black;
     border-radius: 3px;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -31,4 +32,8 @@ h1 {
 .list-group {
     border: 2px solid solid;
     background-color: silver;
+}
+
+#changeTextColor {
+    color: goldenrod;
 }
