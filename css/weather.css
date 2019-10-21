@@ -1,0 +1,39 @@
+
+body {
+    background-color: darkgrey;
+}
+
+.weatherCard {
+    margin-top: 50px;
+    border: 2px black solid;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin: 12px 0;
+}
+
+#remove {
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: black;
+    opacity: 0.5;
+    color: chartreuse;
+}
+
+#remove:hover {
+    opacity: 1;
+}
+
+.list-group {
+    border: 2px solid solid;
+    background-color: silver;
+}
+
+#changeTextColor {
+    color: goldenrod;
+}
